@@ -23,19 +23,23 @@ const fetchBooks = () => {
             <div class="card-body">
               <p class="card-title">${book.title}</p>
               <p class="card-text"> ${book.price}</p>
-              <button id="btn" type="button" class="btn btn-primary">Scarta</button>
+              <button type="button" class="btn btn-primary Scarta">Scarta</button>
             </div>`;
-        col.appendChild(card);
-        row.appendChild(col);
-        const removeBtn = document.getElementById(btn);
-        removeBtn.addEventListner("click", (event) => {
-          row.removeChild(col);
-        });
-      });
+     
+        const removeBtn = card.querySelector(".Scarta")
+        removeBtn.addEventListener("click", (event) => {
+          row.removeChild(col)
+        })
+        col.appendChild(card)
+        row.appendChild(col)
+      })
     })
+    
     .catch((error) => {
       console.log(error);
     });
+    
 };
+window.onload = () => {fetchBooks()}
 
-fetchBooks();
+
